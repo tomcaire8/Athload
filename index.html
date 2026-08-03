@@ -88,9 +88,8 @@ header a img:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.card:hover {
-  height: 300px; /* agrandit pour voir image entière */
-  transform: scale(1.08);
+.card:hover img {
+  opacity: 1;
 }
 
 /* IMAGE */
@@ -102,6 +101,7 @@ header a img:hover {
   object-fit: cover;
   opacity: 0;
   transition: 0.4s;
+  border-radius: 15px;
 }
 
 .card:hover {
