@@ -3,20 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Athload</title>
+<title>Athload Pro</title>
 
-<!-- FAVICON -->
 <link rel="icon" type="image/png" href="Logo.png">
 
 <style>
-
 body {
   margin: 0;
-  font-family: -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* 🔥 ROUGE QUI ARRIVE PLUS VITE */
-  background: linear-gradient(to bottom, #000 0%, #3a0000 20%, #8b0000 60%, #ff2d2d 100%);
-  color: white;
+  /* 🔥 FOND PLUS CLAIR */
+  background: linear-gradient(to bottom, #eef2ff, #dbe4ff, #c7d2fe);
+  color: #111;
 }
 
 /* HEADER */
@@ -24,32 +22,47 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.6);
 }
 
-/* TEXTE ATHLOAD */
 .logo {
-  font-size: 24px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 2px;
+}
+
+.btn {
+  background: linear-gradient(90deg, #0071e3, #5f5fff);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
 }
 
-.btn {
-  background: linear-gradient(90deg,#ff2d2d,#ff6a00);
-  padding: 12px 25px;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
+.hero h1 {
+  font-size: 3rem;
 }
 
-/* SECTIONS */
+.hero p {
+  color: #444;
+}
+
+/* SECTION */
 .section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   max-width: 1200px;
   margin: auto;
 }
@@ -58,46 +71,85 @@ header {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
-/* CARD */
+/* CARDS */
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 20px;
   position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.3s;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* IMAGE HOVER */
 .card img {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  transform: translateY(100%);
   transition: 0.4s;
-  border-radius: 20px;
 }
 
 .card:hover img {
   opacity: 1;
-  transform: translateY(0);
+}
+
+/* PRICING */
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.price-card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 20px;
+  background: white;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.price-card h3 {
+  text-align: center;
+}
+
+/* LISTE CACHEE */
+.features {
+  display: none;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.price-card.active .features {
+  display: block;
+}
+
+/* CONTACT */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 40px;
-  color: #ccc;
-}
-
-a {
-  color: #ff6a00;
-  text-decoration: none;
 }
 
 </style>
@@ -107,26 +159,28 @@ a {
 
 <header>
   <div class="logo">ATHLOAD</div>
-  <a class="btn" href="https://athload.base44.app">Essayer</a>
+  <div>
+    <a class="btn" href="https://athload.base44.app">Essayer</a>
+    <a class="btn" href="https://instagram.com/Athload_app">Instagram</a>
+  </div>
 </header>
 
 <section class="hero">
   <h1>Optimisez la performance.<br>Maîtrisez la charge.</h1>
-  <p>Plateforme pour coachs et structures sportives</p>
+  <p>L’outil ultime pour les coachs et structures de haut niveau.</p>
+  <p><strong>Complet, Fiable et Adaptable</strong></p>
+  <br>
+  <a class="btn" href="https://athload.base44.app">Essayer gratuitement</a>
 </section>
 
 <!-- PERFORMANCE -->
 <section class="section">
 <h2>Performance & Monitoring</h2>
 <div class="grid">
-
 <div class="card">Wellness<img src="Wellness.jpg"></div>
 <div class="card">Charge<img src="Charge.jpg"></div>
 <div class="card">Charge Foster<img src="Charge_foster.jpg"></div>
-<div class="card">EWMA & Monotonie<img src="EWMA_monotonie.jpg"></div>
-<div class="card">Tonnage<img src="Tonnage.jpg"></div>
-<div class="card">Statistiques match<img src="Statistiques_match.jpg"></div>
-
+<div class="card">EWMA<img src="EWMA_monotonie.jpg"></div>
 </div>
 </section>
 
@@ -134,11 +188,8 @@ a {
 <section class="section">
 <h2>Planification</h2>
 <div class="grid">
-
 <div class="card">Projection<img src="Projection.jpg"></div>
-<div class="card">Calendrier partagé<img src="Calendrier_partagé.jpg"></div>
-<div class="card">Banque d'exercices<img src="Banque_exercices.jpg"></div>
-
+<div class="card">Calendrier<img src="Calendrier_partagé.jpg"></div>
 </div>
 </section>
 
@@ -146,10 +197,10 @@ a {
 <section class="section">
 <h2>Gestion & Collaboration</h2>
 <div class="grid">
-
-<div class="card">Espace joueur<img src="Espace_joueur.jpg"></div>
+<div class="card">Espace Coach et Joueurs<img src="Espace_joueur.jpg"></div>
 <div class="card">Equipe<img src="Equipe.jpg"></div>
-
+<div class="card">Banque d’exercice coopérative<img src="Banque_exercices.jpg"></div>
+<div class="card">PDF récapitulatif<img src="Projection.jpg"></div>
 </div>
 </section>
 
@@ -157,24 +208,93 @@ a {
 <section class="section">
 <h2>Santé & Analyse</h2>
 <div class="grid">
-
 <div class="card">Blessures<img src="Blessures.jpg"></div>
+<div class="card">Tonnage<img src="Tonnage.jpg"></div>
+<div class="card">Statistiques<img src="Statistiques_match.jpg"></div>
 <div class="card">Testing<img src="Testing.jpg"></div>
+</div>
+</section>
+
+<!-- TARIFS -->
+<section class="section">
+<h2>Tarifs</h2>
+<div class="pricing">
+
+<div class="price-card" onclick="toggle(this)">
+<h3>Coach</h3>
+<div class="features">
+<ul>
+<li>Suivi état de forme</li>
+<li>Wellness</li>
+<li>Séances réalisées</li>
+<li>Charge d’entraînement</li>
+<li>Dépôt séances</li>
+<li>Vue joueur</li>
+<li>PDF 1 à 12 semaines</li>
+</ul>
+</div>
+</div>
+
+<div class="price-card" onclick="toggle(this)">
+<h3>Coach+</h3>
+<p>Toute l'option Coach</p>
+<div class="features">
+<ul>
+<li>Calendrier mutualisé</li>
+<li>20+ testings</li>
+<li>Planification des charges</li>
+</ul>
+</div>
+</div>
+
+<div class="price-card" onclick="toggle(this)">
+<h3>Clubs / Fédérations</h3>
+<p>Toute l'option Coach+</p>
+<div class="features">
+<ul>
+<li>Partage athlètes</li>
+<li>Multi coachs</li>
+<li>Comparaison de données</li>
+</ul>
+</div>
+</div>
 
 </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section">
+<h2>Contact</h2>
+
+<form class="contact-form" onsubmit="sendMail(event)">
+<input type="text" id="name" placeholder="Nom" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" placeholder="Message"></textarea>
+<button class="btn">Envoyer</button>
+</form>
+
+</section>
+
 <footer>
-
-<p>Créé par Ton Nom</p>
-
-<p>
-<a href="https://instagram.com/toncompte">Instagram</a>
-</p>
-
+<p>Créé par Tom Caire-Madoeuf</p>
 <p>© Athload</p>
-
 </footer>
+
+<script>
+function toggle(el){
+el.classList.toggle("active");
+}
+
+function sendMail(e){
+e.preventDefault();
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let message=document.getElementById("message").value;
+
+window.location.href =
+`mailto:tomcaire88@gmail.com?subject=Contact&body=Nom:${name}%0AEmail:${email}%0AMessage:${message}`;
+}
+</script>
 
 </body>
 </html>
