@@ -76,6 +76,7 @@ header a img:hover {
 /* ===== CARTES FEATURES ===== */
 
 .card {
+  isolation: isolate;
   position: relative;
   background: white;
   border-radius: 15px;
@@ -114,20 +115,47 @@ header a img:hover {
 
 /* Agrandissement uniquement de la carte survolée */
 .card:hover {
-  position: relative;
   height: 200px;
-  transform: scale(1.08);
-  z-index: 10;
+  transform: scale(1.05);
+  z-index: 20;
   color: white;
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
-
-
-/* Image visible */
-.card:hover img {
-  opacity: 1;
+  
+/* Voile sombre sur l'image au survol */
+.card:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  border-radius: 15px;
+  z-index: 1;
 }
 
+/* Image derrière le voile */
+.card:hover img {
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Texte au-dessus de l'image */
+.card span {
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  z-index: 20;
+}
+
+/* Texte au-dessus de l'image */
+.card:hover {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  z-index: 20;
+}
 /* ===== TARIFS ===== */
 .pricing {
   display: flex;
@@ -339,17 +367,25 @@ footer {
 
 <div class="grid">
 
-<div class="card">Wellness scientifique quotidien
-<img src="Wellness.jpg"></div>
+<div class="card">
+  <span>Wellness scientifique quotidien</span>
+  <img src="Wellness.jpg">
+</div>
 
-<div class="card">Charge d’entraînement (Foster)
-<img src="Charge_foster.jpg"></div>
+<div class="card">
+  <span>Charge d’entraînement (Foster)</span>
+  <img src="Charge_foster.jpg">
+</div>
 
-<div class="card">ACWR
-<img src="ACWR.jpg"></div>
+<div class="card">
+  <span>ACWR</span>
+  <img src="ACWR.jpg">
+</div>
 
-<div class="card">EWMA & monotonie
-<img src="EWMA_monotonie.jpg"></div>
+<div class="card">
+  <span>EWMA & monotonie</span>
+  <img src="EWMA_monotonie.jpg">
+</div>
 
 </div>
 
@@ -362,14 +398,20 @@ footer {
 
 <div class="grid">
 
-<div class="card">Projection S+1 à S+4
-<img src="Projection.jpg"></div>
+<div class="card">
+  <span>Projection S+1 à S+4</span>
+  <img src="Projection.jpg">
+</div>
 
-<div class="card">Graphiques dynamiques
-<img src="Graphiques.jpg"></div>
+<div class="card">
+  <span>Graphiques dynamiques</span>
+  <img src="Graphiques.jpg">
+</div>
 
-<div class="card">Calendrier partagé
-<img src="Calendrier.jpg"></div>
+<div class="card">
+  <span>Calendrier partagé</span>
+  <img src="Calendrier.jpg">
+</div>
 
 </div>
 
@@ -382,14 +424,20 @@ footer {
 
 <div class="grid">
 
-<div class="card">Suivi multi joueurs
-<img src="Equipe.jpg"></div>
+<div class="card">
+  <span>Suivi multi joueurs</span>
+  <img src="Equipe.jpg">
+</div>
 
-<div class="card">Espace joueur
-<img src="Espace_joueur.jpg"></div>
+<div class="card">
+  <span>Espace joueur</span>
+  <img src="Espace_joueur.jpg">
+</div>
 
-<div class="card">Banque d’exercices coopérative
-<img src="Banque_exercices.jpg"></div>
+<div class="card">
+  <span>Banque d’exercices coopérative</span>
+  <img src="Banque_exercices.jpg">
+</div>
 
 </div>
 
@@ -402,17 +450,25 @@ footer {
 
 <div class="grid">
 
-<div class="card">Suivi blessures quotidien
-<img src="Blessures.jpg"></div>
+<div class="card">
+  <span>Suivi blessures quotidien</span>
+  <img src="Blessures.jpg">
+</div>
 
-<div class="card">Charge de tonnage
-<img src="Tonnage.jpg"></div>
+<div class="card">
+  <span>Charge de tonnage</span>
+  <img src="Tonnage.jpg">
+</div>
 
-<div class="card">Statistiques de match
-<img src="Statistiques_match.jpg"></div>
+<div class="card">
+  <span>Statistiques de match</span>
+  <img src="Statistiques_match.jpg">
+</div>
 
-<div class="card">Tests physiques évolutifs
-<img src="Testing.jpg"></div>
+<div class="card">
+  <span>Tests physiques évolutifs</span>
+  <img src="Testing.jpg">
+</div>
 
 </div>
 
