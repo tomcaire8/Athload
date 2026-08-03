@@ -32,18 +32,28 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
   opacity: 0;
-  transform: scale(1.08);
+
+  transform: scale(1.12) translateY(20px);
+ filter: brightness(0.95) contrast(1.05);
+  /* IMPORTANT : transition plus longue */
   transition:
-    opacity 1.5s ease,
-    transform 8s ease;
+    opacity 3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 12s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 2s ease;
+
+  will-change: opacity, transform;
 }
 
 
 .background img.active {
   opacity: 1;
-  transform: scale(1);
-  animation: cinematic 10s ease forwards;
+
+  transform: scale(1.02) translateY(0);
+filter: brightness(1.05);
+z-index: 1;
+  animation: cinematic 12s ease forwards, slowMove 20s ease-in-out infinite;
 }
 
 @keyframes cinematic {
@@ -54,17 +64,33 @@ body {
     filter: blur(0);
   }
 }
+  @keyframes slowMove {
+  0% {
+    transform: scale(1.02) translateY(0px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    transform: scale(1.02) translateY(0px);
+  }
+}
 
 .background::after {
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(10,15,40,0.45),
-      rgba(10,15,40,0.65)
-    );
+ background:
+  linear-gradient(
+    to bottom,
+    rgba(10,15,40,0.35),
+    rgba(10,15,40,0.75)
+  ),
+  radial-gradient(
+    circle at 50% 30%,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
 }
 
 /* ===== HEADER ===== */
@@ -622,16 +648,17 @@ const backgrounds = document.querySelectorAll(".background img");
 
 const sections = [
   0,
-  document.querySelector(".feature-category:nth-of-type(2)").offsetTop,
-  document.querySelector(".feature-category:nth-of-type(3)").offsetTop,
+  document.querySelectorAll(".feature-category")[0].offsetTop,
+  document.querySelectorAll(".feature-category")[1].offsetTop,
   document.querySelector(".pricing").offsetTop
 ];
 
 
+let current = 0;
+
 window.addEventListener("scroll", () => {
 
   let scroll = window.scrollY;
-
   let index = 0;
 
   sections.forEach((position,i)=>{
@@ -640,16 +667,12 @@ window.addEventListener("scroll", () => {
     }
   });
 
+  if(index === current) return;
 
-  backgrounds.forEach(img=>{
-    img.classList.remove("active");
-  });
+  backgrounds[current].classList.remove("active");
+  backgrounds[index].classList.add("active");
 
-
-  if(backgrounds[index]){
-    backgrounds[index].classList.add("active");
-  }
-
+  current = index;
 });
 
 </script>
