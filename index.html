@@ -1,153 +1,211 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Site Vitrine</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      background: #f9f9f9;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athload Pro</title>
 
-```
-header {
-  background: #111;
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #0a0f2c, #000);
   color: white;
-  padding: 20px 40px;
+}
+
+/* HEADER */
+header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.4);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 20px;
-}
-
-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.hero {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
+.logo {
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .btn {
-  background: white;
-  color: #333;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
-
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.footer {
-  background: #111;
+  background: linear-gradient(90deg, #0071e3, #5f5fff);
+  padding: 10px 20px;
+  border-radius: 30px;
   color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,113,227,0.6);
+}
+
+/* HERO */
+.hero {
   text-align: center;
-  padding: 20px;
+  padding: 120px 20px;
 }
 
-@media (max-width: 600px) {
-  .hero h2 {
-    font-size: 28px;
-  }
+.hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-```
 
-  </style>
+.hero p {
+  color: #bbb;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* PRICING */
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.price-card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* CONTACT */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+.contact-form button {
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>MonSite</h1>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="logo">ATHLOAD</div>
+  <a class="btn" href="https://athload.base44.app">Essayer gratuitement</a>
 </header>
 
 <section class="hero">
-  <h2>Bienvenue sur mon site</h2>
-  <p>Je crée des solutions simples et efficaces</p>
-  <a href="#" class="btn">Me contacter</a>
+  <h1>Optimisez la performance.<br>Maîtrisez la charge.</h1>
+  <p>La plateforme ultime pour les coachs et structures de haut niveau.</p>
+  <br>
+  <a class="btn" href="https://athload.base44.app">Essayer gratuitement</a>
 </section>
 
 <section class="section">
-  <h2>Mes services</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Site Web</h3>
-      <p>Création de sites modernes et rapides</p>
+  <h2>Performance & Monitoring</h2>
+  <div class="grid">
+    <div class="card">Wellness scientifique quotidien</div>
+    <div class="card">Charge d'entraînement (Foster)</div>
+    <div class="card">ACWR, EWMA, monotonie</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Planification</h2>
+  <div class="grid">
+    <div class="card">Projection S+1 à S+4</div>
+    <div class="card">Graphiques dynamiques</div>
+    <div class="card">Calendrier partagé</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Gestion & Collaboration</h2>
+  <div class="grid">
+    <div class="card">Suivi multi-joueurs</div>
+    <div class="card">Plateforme coach</div>
+    <div class="card">Banque d’exercices</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Santé & Analyse</h2>
+  <div class="grid">
+    <div class="card">Suivi blessures quotidien</div>
+    <div class="card">Charge de tonnage</div>
+    <div class="card">Statistiques de match</div>
+    <div class="card">Tests physiques évolutifs</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Tarifs</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>Coach</h3>
+      <p>Wellness, RPE, séances, blessures</p>
     </div>
-    <div class="card">
-      <h3>Design</h3>
-      <p>Design propre et professionnel</p>
+    <div class="price-card">
+      <h3>Coach+</h3>
+      <p>+ Programmation, testing, gestion charge</p>
     </div>
-    <div class="card">
-      <h3>SEO</h3>
-      <p>Optimisation pour Google</p>
+    <div class="price-card">
+      <h3>Clubs / Fédérations</h3>
+      <p>+ Multi-coachs & gestion équipes</p>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <h2>À propos</h2>
-  <p>Je suis freelance et je crée des sites web simples, rapides et efficaces pour les entreprises et particuliers.</p>
-</section>
-
-<section class="section">
   <h2>Contact</h2>
-  <p>Email : contact@monsite.fr</p>
-</section>
+  <p>Une question ou besoin d’un devis personnalisé ?</p>
 
-<footer class="footer">
-  <p>© 2026 MonSite - Tous droits réservés</p>
-</footer>
+  <form action="https://formspree.io/f/TON_ID" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Votre message..." required></textarea>
+    <button class="btn" type="submit">Envoyer</button>
+  </form>
+</section>
 
 </body>
 </html>
