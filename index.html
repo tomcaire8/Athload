@@ -12,8 +12,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* 🔥 FOND PLUS CLAIR */
-  background: linear-gradient(to bottom, #eef2ff, #dbe4ff, #c7d2fe);
+  background: linear-gradient(to bottom, #e2e8ff, #c7d2fe, #a5b4fc);
   color: #111;
 }
 
@@ -80,17 +79,19 @@ header {
   background: white;
   border-radius: 20px;
   padding: 25px;
-  transition: 0.3s;
+  transition: 0.4s cubic-bezier(.25,.8,.25,1);
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  height: 120px;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
+  height: 250px;
 }
 
-/* IMAGE HOVER */
+/* IMAGE */
 .card img {
   position: absolute;
   top: 0;
@@ -128,10 +129,15 @@ header {
 }
 
 /* LISTE CACHEE */
-.features {
-  display: none;
-  text-align: left;
-  margin-top: 15px;
+.features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #5f5fff, #8f94ff);
+  border-radius: 50%;
 }
 
 .price-card.active .features {
@@ -143,7 +149,10 @@ header {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 500px;
+  max-width: 350px;
+  button {
+  border: none;
+  outline: none;
 }
 
 /* FOOTER */
@@ -161,10 +170,15 @@ footer {
   <div class="logo">ATHLOAD</div>
   <div>
     <a class="btn" href="https://athload.base44.app">Essayer</a>
-    <a class="btn" href="https://instagram.com/Athload_app">Instagram</a>
+    <a href="https://instagram.com/Athload_app" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+       style="width:28px; height:28px; transition:0.3s;">
+</a>
   </div>
 </header>
-
+header a img:hover {
+  transform: scale(1.15);
+}
 <section class="hero">
   <h1>Optimisez la performance.<br>Maîtrisez la charge.</h1>
   <p>L’outil ultime pour les coachs et structures de haut niveau.</p>
@@ -219,7 +233,20 @@ footer {
 <section class="section">
 <h2>Tarifs</h2>
 <div class="pricing">
+  
+.features {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+}
 
+.price-card.active .features {
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+}
 <div class="price-card" onclick="toggle(this)">
 <h3>Coach</h3>
 <div class="features">
