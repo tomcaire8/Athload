@@ -148,12 +148,16 @@ header a img:hover {
 
 /* ===== CARDS ===== */
 .grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-  padding: 40px;
-  align-items: start;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:40px;
+
+padding:20px;
+
 }
 
 /* ===== CARTES FEATURES ===== */
@@ -224,69 +228,220 @@ header a img:hover {
   z-index: 20;
 }
 
-/* ===== TARIFS ===== */
+/* ===== PRICING PREMIUM ===== */
+
 .pricing {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 120px 60px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .price-card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  width: 250px;
-  cursor: pointer;
-  transition: 0.3s;
+
+  position: relative;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.05)
+    );
+
+  backdrop-filter: blur(20px);
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  border-radius:30px;
+
+  padding:40px 30px;
+
+  width:auto;
+
+  min-height:280px;
+
+  color:white;
+
+  cursor:pointer;
+
+  overflow:hidden;
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    border .4s ease;
 }
+
+
+.price-card::before {
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(95,95,255,.35),
+    transparent
+  );
+
+  opacity:0;
+
+  transition:.5s;
+
+}
+
 
 .price-card:hover {
-  transform: translateY(-5px);
+
+  transform:
+  translateY(-15px)
+  scale(1.03);
+
+  box-shadow:
+  0 30px 80px rgba(95,95,255,.35);
+
+  border-color:
+  rgba(95,95,255,.8);
+
 }
+
+
+.price-card:hover::before {
+
+  opacity:1;
+
+}
+
 
 .price-card h3 {
-  text-align: center;
+
+  position:relative;
+
+  font-size:28px;
+
+  text-align:center;
+
+  margin-bottom:30px;
+
 }
+
+
+.price-card::after {
+
+  content:"";
+
+  position:absolute;
+
+  top:20px;
+  right:20px;
+
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#5f5fff;
+
+  box-shadow:
+  0 0 20px #5f5fff;
+
+}
+
+
+/* Carte recommandée */
+
+.price-card:nth-child(2){
+
+  transform:scale(1.08);
+
+  border:
+  2px solid #5f5fff;
+
+}
+
+
+.price-card:nth-child(2)::after{
+
+  content:"POPULAIRE";
+
+  width:auto;
+  height:auto;
+
+  padding:8px 15px;
+
+  border-radius:20px;
+
+  color:white;
+
+  font-size:12px;
+
+  background:#5f5fff;
+
+  box-shadow:
+  0 0 25px rgba(95,95,255,.8);
+
+}
+
 
 /* FEATURES */
+
 .features {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
+
+  max-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+  .5s ease;
+
 }
+
 
 .price-card.active .features {
-  max-height: 400px;
-  opacity: 1;
-  transform: translateY(0);
+
+  max-height:500px;
+
+  opacity:1;
+
 }
 
-/* Puces stylisées */
+
 .features ul {
-  list-style: none;
-  padding: 0;
+
+  list-style:none;
+
+  padding:0;
+
 }
+
 
 .features li {
-  margin: 8px 0;
-  padding-left: 20px;
-  position: relative;
+
+  padding:12px 0;
+
+  border-bottom:
+  1px solid rgba(255,255,255,.1);
+
 }
+
 
 .features li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(45deg, #5f5fff, #8f94ff);
-  border-radius: 50%;
-}
 
+  content:"✓";
+
+  color:#8f94ff;
+
+  margin-right:10px;
+
+}
 /* ===== CONTACT ===== */
 .contact {
   padding: 50px;
@@ -383,9 +538,24 @@ footer {
 }
 /* ===== CATEGORIES FEATURES ===== */
 .feature-category {
-  padding: 20px 40px;
+
+  padding:
+  140px 60px;
+
+  max-width:1400px;
+
+  margin:auto;
+
 }
 
+
+.feature-category h2 {
+
+  font-size:42px;
+
+  margin-bottom:70px;
+
+}
 .feature-category h2 {
   text-align: center;
   font-size: 28px;
@@ -571,46 +741,74 @@ body {
 </section>
 <section class="pricing">
 
+
 <div class="price-card" onclick="toggle(this)">
+
 <h3>Coach</h3>
+
 <div class="features">
+
 <ul>
-<li>Suivi état de forme quotidien</li>
-<li>Wellness</li>
-<li>Suivi charge entraînement</li>
+
+<li>Wellness quotidien</li>
+<li>Charge d'entraînement</li>
+<li>Suivi joueurs</li>
 <li>Dépôt de séances</li>
-<li>Vue joueurs</li>
 <li>PDF 1 à 12 semaines</li>
+
 </ul>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div class="price-card" onclick="toggle(this)">
+
 <h3>Coach+</h3>
+
 <div class="features">
+
 <ul>
-<li>Toute l'option Coach</li>
-<li>Calendrier mutualisé</li>
-<li>20+ testings</li>
+
+<li>Tout Coach</li>
+<li>Calendrier partagé</li>
+<li>20+ tests physiques</li>
 <li>Planification avancée</li>
+<li>Graphiques avancés</li>
+
 </ul>
-</div>
+
 </div>
 
+</div>
+
+
+
+
 <div class="price-card" onclick="toggle(this)">
-<h3>Clubs / Fédérations</h3>
+
+<h3>Clubs</h3>
+
 <div class="features">
+
 <ul>
-<li>Toute l'option Coach+</li>
-<li>Partage athlètes</li>
+
 <li>Multi-coachs</li>
-<li>Comparaison des données</li>
+<li>Partage athlètes</li>
+<li>Comparaison équipes</li>
+<li>Dashboard club</li>
+<li>Support personnalisé</li>
+
 </ul>
+
 </div>
+
 </div>
+
 
 </section>
-
 <section class="contact">
 <h2>Contact</h2>
 
