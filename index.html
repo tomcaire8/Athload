@@ -122,10 +122,10 @@ header a img:hover {
 }
 
 .card span {
-  color: #111;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
+  color:white;
+  font-weight:600;
+  position:relative;
+  z-index:2;
 }
 
 /* ===== HERO ===== */
@@ -165,38 +165,50 @@ padding:20px;
 /* ===== CARTES FEATURES ===== */
 
 .card {
+
   isolation: isolate;
   position: relative;
-  background: white;
-  border-radius: 15px;
-  padding: 15px 20px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.35s ease;
-  z-index: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5f5fff,
+      #8f94ff
+    );
+
+  border-radius:15px;
+
+  padding:15px 20px;
+
+  height:55px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  overflow:hidden;
+  cursor:pointer;
+
+  box-shadow:
+    0 10px 30px rgba(95,95,255,0.35);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
 }
 
 
 /* Image cachée */
 .card img {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  bottom: 10px;
-  right: 10px;
-  object-fit: contain;
-  z-index: 1;
+  opacity:0;
+  transition:.4s ease;
 }
 
 .card:hover img {
-  opacity: 1;
-  z-index: 1;
+  opacity:0.35;
+  transform:scale(1.15);
 }
 
 .card:hover::after {
@@ -232,10 +244,9 @@ padding:20px;
   position: relative;
   width: 100%;
 }
-
-  .card-row {
+.card-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ou 4 */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 40px;
   position: relative;
@@ -243,14 +254,29 @@ padding:20px;
 
 .row-desc {
   grid-column: 1 / -1;
-  margin-top: 50px;
-  padding: 0 40px;
+  margin-top: 35px;
+  padding: 20px 40px;
+
   font-size: 22px;
-  line-height: 1.8;
-  min-height: 80px;
+  line-height: 1.6;
   text-align: center;
+
+  min-height: 80px;
+
+  color: white;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+
   opacity: 0;
-  transition: all 0.4s ease;
+  transform: translateY(20px);
+
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+
+.row-desc.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
   
 /* ===== PRICING PREMIUM ===== */
@@ -1092,7 +1118,7 @@ bg.style.transform =
 animate();
 </script>
 <script>
-
+  
 document.querySelectorAll('.card-row').forEach(row => {
 
   const descBox = row.querySelector('.row-desc');
@@ -1101,9 +1127,9 @@ document.querySelectorAll('.card-row').forEach(row => {
 
     card.addEventListener('mouseenter', () => {
 
-      descBox.textContent = card.getAttribute('data-desc');
+      descBox.textContent = card.dataset.desc;
 
-      descBox.style.opacity = "1";
+      descBox.classList.add("visible");
 
     });
 
@@ -1114,7 +1140,7 @@ document.querySelectorAll('.card-row').forEach(row => {
 
     descBox.textContent = "";
 
-    descBox.style.opacity = "0";
+    descBox.classList.remove("visible");
 
   });
 
