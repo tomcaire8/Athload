@@ -1080,38 +1080,37 @@ bg.style.transform =
 }
 
 animate();
-</script>
+<script>
 
 document.querySelectorAll('.card-row').forEach(row => {
 
-const descBox = row.querySelector('.row-desc');
+  const descBox = row.querySelector('.row-desc');
+
+  row.querySelectorAll('.card').forEach(card => {
+
+    card.addEventListener('mouseenter', () => {
+
+      descBox.textContent = card.getAttribute('data-desc');
+
+      descBox.style.opacity = "1";
+
+    });
+
+  });
 
 
-row.querySelectorAll('.card').forEach(card => {
+  row.addEventListener('mouseleave', () => {
 
+    descBox.textContent = "";
 
-card.addEventListener('mouseenter', () => {
+    descBox.style.opacity = "0";
 
-descBox.textContent = card.getAttribute('data-desc');
-
-descBox.style.opacity = "1";
-
-});
-
-
-});
-
-
-row.addEventListener('mouseleave', () => {
-
-descBox.textContent = "";
-
-descBox.style.opacity = "0";
-
-});
-
+  });
 
 });
+
+</script>
+
 </body>
 </html>
  
