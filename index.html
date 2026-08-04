@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -17,9 +17,7 @@ body {
   background: #0f1020;
 }
 
-
 /* ===== BACKGROUND PREMIUM ===== */
-
 .background {
   position: fixed;
   inset: 0;
@@ -27,1066 +25,105 @@ body {
   overflow: hidden;
 }
 
-/* ===== BACKGROUND ULTRA PREMIUM ===== */
-
 .background img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   opacity: 0;
-
   transform: scale(1.08);
-  will-change: transform, opacity;
-  transition:
-    opacity 2.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 8s ease-out;
-
-  filter: brightness(0.9) contrast(1.1);
+  transition: opacity 2.8s, transform 8s;
 }
 
 .background img.active {
   opacity: 1;
   transform: scale(1.02);
-  filter: brightness(1.05);
 }
 
 .background::after {
   content:"";
   position:absolute;
   inset:0;
-
   background:
     radial-gradient(circle at 50% 20%, rgba(255,255,255,0.12), transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(95,95,255,0.15), transparent 70%),
     linear-gradient(to bottom, rgba(10,15,40,0.4), rgba(10,15,40,0.85));
-
   backdrop-filter: blur(6px);
-}
-
-/* ===== HERO ANIMATION ===== */
-
-.hero-title {
-  animation: fadeUp 1.2s ease forwards;
-}
-
-.hero-sub {
-  animation: fadeUp 1.6s ease forwards;
-}
-
-.hero-buttons {
-  animation: fadeUp 2s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== CARDS UPGRADE ===== */
-
-.card:hover {
-  height: 200px;
-  transform: scale(1.07) translateY(-5px);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
 }
 
 /* ===== HEADER ===== */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 50px;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 24px;
-}
+.logo {font-weight:bold;font-size:24px;}
 
 header a img {
-  width: 28px;
-  height: 28px;
-  transition: 0.3s;
-}
-
-header a img:hover {
-  transform: scale(1.15);
+  width:28px;
+  margin-left:10px;
 }
 
 /* ===== HERO ===== */
-.hero h1 {
-  font-size: 40px;
-}
-
-.hero p {
-  margin: 20px 0;
-  font-size: 18px;
+.hero {
+  text-align:center;
+  padding:100px 20px 80px;
 }
 
 .btn {
-  background: #5f5fff;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 10px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
+  background:#5f5fff;
+  padding:12px 25px;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
 }
 
-/* ===== CARDS ===== */
+.hero-extra {
+  max-width:700px;
+  margin:20px auto;
+  font-size:16px;
+}
+
+/* ===== GRID ===== */
 .grid {
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:40px;
-
-padding:20px;
-
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  padding:20px;
 }
 
-/* ===== CARTES FEATURES ===== */
-
+/* ===== CARDS MODIF ===== */
 .card {
-  isolation: isolate;
   position: relative;
-  background: white;
-  border-radius: 15px;
-  padding: 15px 20px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.35s ease;
-  z-index: 1;
 }
 
-
-/* Image cachée */
 .card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  border-radius: 15px;
-  transition: 0.35s ease;
+  position:absolute;
+  width:70px;
+  bottom:10px;
+  right:10px;
+  opacity:1 !important;
 }
 
-
-/* Texte */
-.card {
-  color: #111;
+.card:hover img {
+  opacity:1 !important;
 }
 
-
-/* Voile sombre sur l'image au survol */
 .card:hover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  border-radius: 15px;
-  z-index: 1;
+  display:none;
 }
 
-/* Image derrière le voile */
-.card:hover img {
-  opacity: 1;
-  z-index: 0;
-}
-
-/* Texte au-dessus de l'image */
-.card span {
-  position: relative;
-  z-index: 2;
-}
-
-.card:hover {
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  z-index: 20;
-}
-
-/* ===== PRICING PREMIUM ===== */
-
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 120px 60px;
-  max-width: 1200px;
-  margin: auto;
-}
-  
-.pricing:hover .price-card {
-  opacity: 0.4;
-  transform: scale(0.98);
-}
-
-.pricing .price-card:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-.price-card {
-  transition:
-  transform .4s ease,
-  box-shadow .4s ease,
-  border .4s ease,
-  opacity .4s ease;
-  position: relative;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.18),
-      rgba(255,255,255,0.05)
-    );
-
-  backdrop-filter: blur(20px);
-
-  border:1px solid rgba(255,255,255,0.15);
-
-  border-radius:30px;
-
-  padding:40px 30px;
-
-  width:auto;
-
-  min-height:280px;
-
-  color:white;
-
-  cursor:pointer;
-
-  overflow:hidden;
-
-}
-
-
-.price-card::before {
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-  linear-gradient(
-    120deg,
-    transparent,
-    rgba(95,95,255,.35),
-    transparent
-  );
-
-  opacity:0;
-
-  transition:.5s;
-
-}
-
-.price-card:hover .cta {
-  transform: translateY(-5px);
-}
-.price-card:hover {
-
-  transform:
-  translateY(-15px)
-  scale(1.03);
-
-  box-shadow:
-  0 30px 80px rgba(95,95,255,.35);
-
-  border-color:
-  rgba(95,95,255,.8);
-
-  backdrop-filter: blur(25px);
-
-}
-
-
-.price-card:hover::before {
-
-  opacity:1;
-
-}
-
-
-.price-card h3 {
-
-  position:relative;
-
-  font-size:28px;
-
-  text-align:center;
-
-  margin-bottom:30px;
-
-}
-
-
-.price-card::after {
-
-  content:"";
-
-  position:absolute;
-
-  top:20px;
-  right:20px;
-
-  width:8px;
-  height:8px;
-
-  border-radius:50%;
-
-  background:#5f5fff;
-
-  box-shadow:
-  0 0 20px #5f5fff;
-
-}
-
-
-/* Carte recommandée */
-
-.price-card:nth-child(2){
-
-  transform:scale(1.08);
-
-  border:
-  2px solid #5f5fff;
-
-}
-
-
-.price-card:nth-child(2)::after{
-
-  content:"POPULAIRE";
-
-  width:auto;
-  height:auto;
-
-  padding:8px 15px;
-
-  border-radius:20px;
-
-  color:white;
-
-  font-size:12px;
-
-  background:#5f5fff;
-
-  box-shadow:
-  0 0 25px rgba(95,95,255,.8);
-
-}
-
-
-/* FEATURES */
-  
-.features {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.price-card.active .features {
-  max-height: 500px;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-.features ul {
-
-  list-style:none;
-
-  padding:0;
-
-}
-
-
-.features li {
-
-  padding:12px 0;
-
-  border-bottom:
-  1px solid rgba(255,255,255,.1);
-
-}
-
-
-.features li::before {
-
-  content:"✓";
-
-  color:#8f94ff;
-
-  margin-right:10px;
-
-}
-/* ===== CONTACT ===== */
-.contact {
-  padding: 50px;
-  text-align: center;
-}
-
-.contact-form {
-  max-width: 350px; /* réduit */
-  margin: auto;
-}
-
-input, textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-button {
-  background: #5f5fff;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  box-shadow: none; /* enlève contour blanc */
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 14px;
-}
-/* HERO PREMIUM */
-
-.hero {
-  text-align: center;
-  padding: 100px 20px 80px;
-}
-
-.hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.hero-title span {
-  background: linear-gradient(90deg, #5f5fff, #8f94ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-sub {
-  margin-top: 15px;
-  font-size: 18px;
-  opacity: 0.8;
-}
-
-.hero-tag {
-  margin-top: 10px;
-  font-size: 15px;
-  letter-spacing: 1px;
-  color: #555;
-}
-
-.hero-buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn.primary {
-  background: #5f5fff;
-  color: white;
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(95,95,255,0.3);
-}
-
-.btn.secondary {
-  background: white;
-  color: #5f5fff;
-  border: 1px solid #ddd;
-}
-
-.btn.secondary:hover {
-  background: #f5f5ff;
-}
-/* ===== CATEGORIES FEATURES ===== */
-.feature-category {
-
-  padding:
-  140px 60px;
-
-  max-width:1400px;
-
-  margin:auto;
-
-}
-
-.feature-category h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 25px;
-  background: linear-gradient(90deg, #5f5fff, #8f94ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-  /* ===== LISIBILITÉ TEXTE SUR FOND ===== */
-
-
-
-.hero-sub,
-.hero-tag {
-  color: rgba(255,255,255,0.8);
-}
-
-.hero-title,
-.hero-sub,
-.hero-tag {
-  text-shadow: 0 2px 15px rgba(0,0,0,0.6);
-}
-
-.feature-category h2 {
-  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
-  /* ===== CTA PRICING ULTRA PREMIUM ===== */
-
-.price {
-  text-align: center;
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.price span {
-  font-size: 16px;
-  opacity: 0.7;
-}
-
-.cta {
-  display: block;
-  text-align: center;
-  margin-top: 25px;
-
-  padding: 14px;
-  border-radius: 12px;
-
-  background: linear-gradient(90deg,#5f5fff,#8f94ff);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-
-  transition: 0.3s ease;
-}
-
-.cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(95,95,255,0.5);
-}
-  
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  opacity: 0;
-  transition: 0.5s;
-  z-index: 1;
-}
-
-.cta:hover::before {
-  opacity: 1;
-}
-
-.cta {
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-}
-/* bouton secondaire (Clubs) */
-.cta.secondary {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-textarea {
-  min-height: 140px;
-  resize: none;
-  border-radius: 12px;
-  padding: 14px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.03);
-  color: white;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-textarea:focus {
-  outline: none;
-  border: 1px solid #00f0ff;
-  box-shadow: 0 0 15px rgba(0,240,255,0.3);
-}
-</style>
-</head>
-
-<body>
-<div class="background">
-
-<img src="Background1.jpg" class="active">
-<img src="Background2.jpg">
-<img src="Background3.jpg">
-<img src="Background4.jpg">
-
-</div>
-<header>
-<div class="logo">Athload</div>
-
-  <a href="https://instagram.com/Athload_app" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-  </a>
-</header>
-
-<section class="hero">
-
-  <h1 class="hero-title">
-    Optimisez la performance.<br>
-    <span>Maîtrisez la charge.</span>
-  </h1>
-
-  <p class="hero-sub">
-    L’outil ultime pour les coachs et structures de haut niveau.
-  </p>
-
-  <p class="hero-tag">
-    Complet • Fiable • Adaptable
-  </p>
-
-  <div class="hero-buttons">
-    <a class="btn primary">Essayer gratuitement</a>
-    <a href="#contact" class="btn primary">Essayer gratuitement</a>
-  </div>
-
-</section>
-
-<section class="feature-category">
-
-<h2>Performance & Monitoring</h2>
-
-<div class="grid">
-
-<div class="card">
-  <span>Wellness scientifique quotidien</span>
- <img src="Wellness.jpg" alt="Wellness">
-</div>
-
-<div class="card">
-  <span>Charge d’entraînement (Foster)</span>
-  <img src="Charge_foster.jpg" alt="Charge">
-</div>
-
-<div class="card">
-  <span>ACWR</span>
-  <img src="ACWR.jpg">
-</div>
-
-<div class="card">
-  <span>EWMA & monotonie</span>
-  <img src="EWMA_monotonie.jpg" alt="EWMA">
-</div>
-
-</div>
-
-</section>
-
-
-<section class="feature-category">
-
-<h2>Planification</h2>
-
-<div class="grid">
-
-<div class="card">
-  <span>Projection S+1 à S+4</span>
-  <img src="Projection.jpg" alt="Projection">
-</div>
-
-<div class="card">
-  <span>Graphiques dynamiques</span>
-  <img src="Graphiques.jpg" alt="Graphiques">
-</div>
-
-<div class="card">
-  <span>Calendrier partagé</span>
-  <img src="Calendrier.jpg">
-</div>
-
-</div>
-
-</section>
-
-
-<section class="feature-category">
-
-<h2>Gestion & Collaboration</h2>
-
-<div class="grid">
-
-<div class="card">
-  <span>Suivi multi joueurs</span>
-  <img src="Equipe.jpg">
-</div>
-
-<div class="card">
-  <span>Espace joueur</span>
-  <img src="Espace_joueur.jpg">
-</div>
-
-<div class="card">
-  <span>Banque d’exercices coopérative</span>
-  <img src="Banque_exercices.jpg">
-</div>
-
-</div>
-
-</section>
-
-
-<section class="feature-category">
-
-<h2>Santé & Analyse</h2>
-
-<div class="grid">
-
-<div class="card">
-  <span>Suivi blessures quotidien</span>
-  <img src="Blessures.jpg">
-</div>
-
-<div class="card">
-  <span>Charge de tonnage</span>
-  <img src="Tonnage.jpg">
-</div>
-
-<div class="card">
-  <span>Statistiques de match</span>
-  <img src="Statistiques_match.jpg">
-</div>
-
-<div class="card">
-  <span>Tests physiques évolutifs</span>
-  <img src="Testing.jpg">
-</div>
-
-</div>
-
-</section>
-<section class="pricing">
-
-
-<div class="price-card" onclick="toggle(this)">
-
-<h3>Coach</h3>
-<div class="price">49€<span>/mois</span></div>
-
-<a class="cta">Essayer gratuitement</a>
-<a href="#contact" class="cta">Essayer gratuitement</a>
-  
-<div class="features">
-
-<ul>
-
-<li>Wellness quotidien</li>
-<li>Charge d'entraînement</li>
-<li>Suivi joueurs</li>
-<li>Dépôt de séances</li>
-<li>PDF 1 à 12 semaines</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-
-<div class="price-card" onclick="toggle(this)">
-
-<h3>Coach+</h3>
-<div class="price">99€<span>/mois</span></div>
-
-<a class="cta">Commencer maintenant</a>
-<a href="#contact" class="cta">Commencer maintenant</a>
-  
-<div class="features">
-
-<ul>
-
-<li>Tout Coach</li>
-<li>Calendrier partagé</li>
-<li>20+ tests physiques</li>
-<li>Planification avancée</li>
-<li>Graphiques avancés</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-
-
-<div class="price-card" onclick="toggle(this)">
-
-<h3>Clubs/Fédérations</h3>
-<div class="price">Sur devis</div>
-
-<a class="cta secondary">Nous contacter</a>
-<a href="#contact" class="cta secondary">Nous contacter</a>
-  
-<div class="features">
-
-<ul>
-
-<li>Multi-coachs</li>
-<li>Partage athlètes</li>
-<li>Comparaison équipes</li>
-<li>Dashboard club</li>
-<li>Support personnalisé</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-</section>
-<section id="contact" class="contact">
-<h2>Contact</h2>
-
-<form id="contact-form" action="https://formspree.io/f/mwleeeeq" method="POST">
-
-  <input 
-    type="text" 
-    name="nom" 
-    placeholder="Nom" 
-    required
-  >
-
-  <input 
-    type="email" 
-    name="email" 
-    placeholder="Email" 
-    required
-  >
-
-  <textarea 
-    name="message" 
-    placeholder="Votre message..." 
-    required
-  ></textarea>
-
-<button type="submit" class="cta">
-    Envoyer le message
-  </button>
-
-  <p id="success-message" style="display:none; color:#4CAF50;">
-  ✅ Message envoyé !
-</p>
-
-</form>
-
-</section>
-
-<footer>
-Créé par Tom Caire--Madoeuf
-</footer>
-  
-<script>
-const form = document.getElementById('contact-form');
-const success = document.getElementById('success-message');
-
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  const data = new FormData(form);
-
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  });
-
-  if (response.ok) {
-    form.reset();
-    success.style.display = 'block';
-  } else {
-    alert("Erreur, réessaie.");
-  }
-});
-</script>
-  
-<script>
-function toggle(el){
-  el.classList.toggle("active");
-}
-
-const backgrounds = document.querySelectorAll(".background img");
-
-let sections = [];
-
-function updateSections() {
-  sections = [
-    0,
-    document.querySelectorAll(".feature-category")[0].offsetTop,
-    document.querySelectorAll(".feature-category")[1].offsetTop,
-    document.querySelector(".pricing").offsetTop
-  ];
-}
-
-window.addEventListener("load", updateSections);
-window.addEventListener("resize", updateSections);
-
-let current = 0;
-
-/* ===== SWITCH IMAGE (CROSSFADE) ===== */
-
-window.addEventListener("scroll", () => {
-
-  let scroll = window.scrollY;
-  let index = 0;
-
-  sections.forEach((pos,i)=>{
-    if(scroll >= pos - 300){
-      index = i;
-    }
-  });
-
-  if(index !== current){
-    backgrounds[current].classList.remove("active");
-    backgrounds[index].classList.add("active");
-    current = index;
-  }
-
-});
-
-/* ===== PARALLAX CINÉMATIQUE ===== */
-
-let target = 0;
-let currentY = 0;
-
-function animate(){
-
-  target = window.scrollY * 0.06;
-  currentY += (target - currentY) * 0.06;
-
-  backgrounds.forEach((bg, i) => {
-
-    let depth = (i + 1) * 0.3;
-
-bg.style.transform =
-`scale(${1.04 + depth * 0.02}) translateY(${currentY * depth}px)`;
-
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-</script>
-</body>
-</html>
-
-<!-- ===================== CHANGEMENTS APPLIQUÉS ===================== -->
-
-<!-- 1. Suppression des doubles boutons -->
-
-<!-- 2. Tous les CTA → https://athload.base44.app -->
-
-<!-- 3. Formulaire ÷2 largeur -->
-
-<!-- 4. Ajout icône mail -->
-
-<!-- 5. Texte sous bouton hero -->
-
-<!-- 6. Prix modifiés -->
-
-<!-- 7. Suppression ACWR -->
-
-<!-- 8. Hover = texte sous carte -->
-
-<!-- 9. Image déplacée en bas droite -->
-
-<!-- =============================================================== -->
-
-<!DOCTYPE html>
-
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>Athload</title>
-
-<link rel="icon" type="image/png" href="Logo.png">
-
-<style>
-
-/* ===== MODIF IMAGE POSITION ===== */
-.card {
-  position: relative;
-}
-
-.card img {
-  position: absolute;
-  width: 70px;
-  bottom: 10px;
-  right: 10px;
-  opacity: 1 !important;
-  z-index: 0;
-}
-
-/* SUPPRESSION IMAGE BACKGROUND HOVER */
-.card:hover img {
-  opacity: 1;
-}
-
-/* TEXTE HOVER SOUS CARTE */
+/* TEXTE HOVER */
 .card-wrapper {
   display:flex;
   flex-direction:column;
 }
 
 .card-desc {
-  opacity:0;
   max-height:0;
+  opacity:0;
   overflow:hidden;
   transition:0.4s;
   font-size:14px;
@@ -1094,20 +131,50 @@ animate();
 }
 
 .card-wrapper:hover .card-desc {
-  opacity:1;
   max-height:200px;
+  opacity:1;
 }
 
-/* FORMULAIRE */
+/* ===== PRICING (INTOUCHÉ) ===== */
+.price-card {
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  text-align:center;
+}
+
+.price {font-size:32px;}
+
+.cta {
+  display:block;
+  margin-top:15px;
+  padding:10px;
+  background:#5f5fff;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+}
+
+/* ===== CONTACT ===== */
 .contact-form {
-  max-width: 250px;
+  max-width:250px;
+  margin:auto;
 }
 
-/* HERO TEXTE */
-.hero-extra {
-  max-width:600px;
-  margin:15px auto;
-  font-size:15px;
+input, textarea {
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+button {
+  background:#5f5fff;
+  color:white;
+  padding:12px;
+  border-radius:10px;
+  border:none;
 }
 
 </style>
@@ -1116,7 +183,12 @@ animate();
 
 <body>
 
-<!-- HEADER -->
+<div class="background">
+<img src="Background1.jpg" class="active">
+<img src="Background2.jpg">
+<img src="Background3.jpg">
+<img src="Background4.jpg">
+</div>
 
 <header>
 <div class="logo">Athload</div>
@@ -1132,8 +204,6 @@ animate();
 </div>
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <h1 class="hero-title">
@@ -1143,6 +213,10 @@ Optimisez la performance.<br>
 
 <p class="hero-sub">
 L’outil ultime pour les coachs et structures de haut niveau.
+</p>
+
+<p class="hero-tag">
+Complet • Fiable • Adaptable
 </p>
 
 <div class="hero-buttons">
@@ -1155,68 +229,128 @@ Chez Athload nous portons une attention particulière à la mise en place pratiq
 
 </section>
 
-<!-- FEATURES -->
-
 <section class="feature-category">
-
 <div class="grid">
 
-<!-- Wellness -->
-
+<!-- 1 -->
 <div class="card-wrapper">
-<div class="card">
-<span>Wellness scientifique quotidien</span>
-<img src="Wellness.jpg">
-</div>
-<div class="card-desc">
-Suivi d’état de forme chaque jour grâce au test Wellness validée par la science et a un score de risque. Possibilité d’avoir le détail d’évolution par item du test de wellness.
-</div>
+  <div class="card">
+    <span>Wellness scientifique quotidien</span>
+    <img src="Wellness.jpg">
+  </div>
+  <div class="card-desc">
+    Suivi d’état de forme chaque jour grâce à un questionnaire validé scientifiquement.
+  </div>
 </div>
 
-<!-- Foster -->
-
+<!-- 2 -->
 <div class="card-wrapper">
-<div class="card">
-<span>Charge d’entraînement (Foster)</span>
-<img src="Charge_foster.jpg">
-</div>
-<div class="card-desc">
-Suivi de charge d’entrainement Grâce au modèle de Foster. Graphique de répartition des volumes, des intensités et des thème de séances se basant sur la charge.
-</div>
+  <div class="card">
+    <span>Calcul automatique de la charge</span>
+    <img src="Charge.jpg">
+  </div>
+  <div class="card-desc">
+    Calcul instantané des charges internes et externes pour chaque séance.
+  </div>
 </div>
 
-<!-- EWMA -->
-
+<!-- 3 -->
 <div class="card-wrapper">
-<div class="card">
-<span>EWMA & monotonie</span>
-<img src="EWMA_monotonie.jpg">
+  <div class="card">
+    <span>Historique complet</span>
+    <img src="Historique.jpg">
+  </div>
+  <div class="card-desc">
+    Visualisation claire de toutes les données passées des athlètes.
+  </div>
 </div>
-<div class="card-desc">
-Utilisation des indices de monotonie, de Gabbett (ACWR et EWMA) ainsi que la monotonie d’entrainement pour être le plus précis possible concernant l’accumulation de fatigue des athlètes.
+
+<!-- 4 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Alertes fatigue & blessures</span>
+    <img src="Alertes.jpg">
+  </div>
+  <div class="card-desc">
+    Détection automatique des risques grâce aux indicateurs clés.
+  </div>
 </div>
+
+<!-- 5 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Suivi individuel des athlètes</span>
+    <img src="Athlete.jpg">
+  </div>
+  <div class="card-desc">
+    Chaque joueur possède un profil complet avec ses données.
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Visualisation graphique</span>
+    <img src="Graph.jpg">
+  </div>
+  <div class="card-desc">
+    Graphiques dynamiques pour comprendre les tendances rapidement.
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Planification des séances</span>
+    <img src="Planning.jpg">
+  </div>
+  <div class="card-desc">
+    Organisez et structurez facilement vos entraînements.
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Interface simple & rapide</span>
+    <img src="UI.jpg">
+  </div>
+  <div class="card-desc">
+    Une UX pensée pour aller à l’essentiel sans perte de temps.
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="card-wrapper">
+  <div class="card">
+    <span>Multi-plateforme</span>
+    <img src="Mobile.jpg">
+  </div>
+  <div class="card-desc">
+    Disponible sur mobile, tablette et ordinateur.
+  </div>
 </div>
 
 </div>
 </section>
 
-<!-- PRICING (DESIGN INTACT) -->
+<!-- PRICING -->
 
 <section class="pricing">
 
-<div class="price-card" onclick="toggle(this)">
+<div class="price-card">
 <h3>Coach</h3>
-<div class="price">19€<span>/mois</span><br>215€<span>/an</span></div>
+<div class="price">19€<span>/mois</span> ou 215€<span>/an</span></div>
 <a href="https://athload.base44.app" class="cta">Essayer gratuitement</a>
 </div>
 
-<div class="price-card" onclick="toggle(this)">
+<div class="price-card">
 <h3>Coach+</h3>
-<div class="price">29€<span>/mois</span><br>300€<span>/an</span></div>
+<div class="price">29€<span>/mois</span> ou 300€<span>/an</span></div>
 <a href="https://athload.base44.app" class="cta">Commencer maintenant</a>
 </div>
 
-<div class="price-card" onclick="toggle(this)">
+<div class="price-card">
 <h3>Clubs/Fédérations</h3>
 <div class="price">Sur devis</div>
 <a href="#contact" class="cta secondary">Nous contacter</a>
@@ -1224,20 +358,13 @@ Utilisation des indices de monotonie, de Gabbett (ACWR et EWMA) ainsi que la mon
 
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
+<section id="contact">
 <form class="contact-form" action="https://formspree.io/f/mwleeeeq" method="POST">
-
 <input type="text" name="nom" placeholder="Nom" required>
 <input type="email" name="email" placeholder="Email" required>
-<textarea name="message" placeholder="Votre message..." required></textarea>
-
+<textarea name="message" placeholder="Message" required></textarea>
 <button type="submit">Envoyer</button>
-
 </form>
-
 </section>
 
 </body>
