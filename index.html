@@ -179,48 +179,41 @@ padding:20px;
 /* Image cachée */
 .card img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  border-radius: 15px;
-  transition: 0.35s ease;
+  width: 70px;
+  height: auto;
+  bottom: 10px;
+  right: 10px;
+  opacity: 1;
+  object-fit: contain;
 }
 
-
-/* Texte */
-.card {
-  color: #111;
-}
-
-
-/* Voile sombre sur l'image au survol */
-.card:hover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  border-radius: 15px;
+.card:hover img {
+  opacity: 1;
   z-index: 1;
 }
 
-/* Image derrière le voile */
-.card:hover img {
+.card:hover::after {
+  display: none;
+}
+
+/* TEXTE HOVER */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.card-wrapper:hover .card-desc {
+  max-height: 300px;
   opacity: 1;
-  z-index: 0;
-}
-
-/* Texte au-dessus de l'image */
-.card span {
-  position: relative;
-  z-index: 2;
-}
-
-.card:hover {
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  z-index: 20;
 }
 
 /* ===== PRICING PREMIUM ===== */
@@ -449,10 +442,8 @@ padding:20px;
 }
 
 .contact-form {
-  max-width: 350px; /* réduit */
-  margin: auto;
+  max-width: 175px;
 }
-
 input, textarea {
   width: 100%;
   margin: 10px 0;
@@ -668,9 +659,15 @@ textarea:focus {
 <header>
 <div class="logo">Athload</div>
 
-  <a href="https://instagram.com/Athload_app" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-  </a>
+<div>
+<a href="https://instagram.com/Athload_app" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<a href="#contact">
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+</a>
+</div>
 </header>
 
 <section class="hero">
@@ -688,10 +685,13 @@ textarea:focus {
     Complet • Fiable • Adaptable
   </p>
 
-  <div class="hero-buttons">
-    <a class="btn primary">Essayer gratuitement</a>
-    <a href="#contact" class="btn primary">Essayer gratuitement</a>
-  </div>
+<div class="hero-buttons">
+<a href="https://athload.base44.app" class="btn primary">Essayer gratuitement</a>
+</div>
+
+<p style="max-width:700px;margin:20px auto;">
+Chez Athload nous portons une attention particulière à la mise en place pratique de notre application. C’est pourquoi nous vous proposons un outils le plus complet possible en le faisant évoluer continuellement pour qu’il vous corresponde.
+</p>
 
 </section>
 
@@ -701,24 +701,34 @@ textarea:focus {
 
 <div class="grid">
 
-<div class="card">
-  <span>Wellness scientifique quotidien</span>
- <img src="Wellness.jpg" alt="Wellness">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Wellness scientifique quotidien</span>
+    <img src="Wellness.jpg">
+  </div>
+  <div class="card-desc">
+    Suivi d’état de forme chaque jour grâce au test Wellness validée par la science et a un score de risque. Possibilité d’avoir le détail d’évolution par item du test de wellness.
+  </div>
 </div>
 
-<div class="card">
-  <span>Charge d’entraînement (Foster)</span>
-  <img src="Charge_foster.jpg" alt="Charge">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Charge d’entraînement (Foster)</span>
+    <img src="Charge.jpg">
+  </div>
+  <div class="card-desc">
+    Suivi de charge d’entrainement Grâce au modèle de Foster. Graphique de répartition des volumes, des intensités et des thème de séances se basant sur la charge.
+  </div>
 </div>
 
-<div class="card">
-  <span>ACWR</span>
-  <img src="ACWR.jpg">
-</div>
-
-<div class="card">
-  <span>EWMA & monotonie</span>
-  <img src="EWMA_monotonie.jpg" alt="EWMA">
+<div class="card-wrapper">
+  <div class="card">
+    <span>EWMA & Monotonie</span>
+    <img src="EWMA.jpg">
+  </div>
+  <div class="card-desc">
+    Utilisation des indices de monotonie, de Gabbett (ACWR et EWMA) ainsi que la monotonie d’entrainement pour être le plus précis possible concernant l’accumulation de fatigue des athlètes.
+  </div>
 </div>
 
 </div>
@@ -732,19 +742,34 @@ textarea:focus {
 
 <div class="grid">
 
-<div class="card">
-  <span>Projection S+1 à S+4</span>
-  <img src="Projection.jpg" alt="Projection">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Projection S+1 à S+4</span>
+    <img src="Projection.jpg">
+  </div>
+  <div class="card-desc">
+    Possibilité de faire une projection de charge pour la semaine en cours, la semaine suivant (S+1) cela jusqu’à S+4 et de l’intégrer au différent graphiques liés à cette charge.
+  </div>
 </div>
 
-<div class="card">
-  <span>Graphiques dynamiques</span>
-  <img src="Graphiques.jpg" alt="Graphiques">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Graphiques dynamiques</span>
+    <img src="Graph.jpg">
+  </div>
+  <div class="card-desc">
+    Accès a des graphiques zoomables, découplables et exportables en PDF sur des périodes données.
+  </div>
 </div>
 
-<div class="card">
-  <span>Calendrier partagé</span>
-  <img src="Calendrier.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Calendrier partagé</span>
+    <img src="Calendar.jpg">
+  </div>
+  <div class="card-desc">
+    Programmation des compétition grâce à un calendrier partagé. Affichage des périodes, des matchs et des séances réalisés pour tous les joueurs sur le même calendrier.
+  </div>
 </div>
 
 </div>
@@ -758,19 +783,34 @@ textarea:focus {
 
 <div class="grid">
 
-<div class="card">
-  <span>Suivi multi joueurs</span>
-  <img src="Equipe.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Suivi multi joueurs</span>
+    <img src="Team.jpg">
+  </div>
+  <div class="card-desc">
+    Un seul outil pour suivre plusieurs joueurs, avec l’onglet Team votre application vous permet de voir et de gérer tous vos joueurs sur la même page. De plus avec l’option Club plusieurs coach pourrons avoir accès aux même joueurs.
+  </div>
 </div>
 
-<div class="card">
-  <span>Espace joueur</span>
-  <img src="Espace_joueur.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Espace joueur</span>
+    <img src="Player.jpg">
+  </div>
+  <div class="card-desc">
+    Un espace intuitif, simple et condensé permettant aux joueurs de remplir leur Wellness, recevoir leur séance de la journée, donner son feedback (Durée, RPE, feeling) sur la séance qu’ils viennent de réaliser, Déclarer une douleur ou une blessure et enfin ajouter des période de tournoi ou de vacances à la programmation.
+  </div>
 </div>
 
-<div class="card">
-  <span>Banque d’exercices coopérative</span>
-  <img src="Banque_exercices.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Banque d’exercice coopérative</span>
+    <img src="Exercice.jpg">
+  </div>
+  <div class="card-desc">
+    Une banque d’exercices vouée à évoluer et se renforcer. Chaque exercice ajouté dans la banque par un coach sera immédiatement disponible pour tous les autres coach utilisant l’application. Cette outil de référencement sera lié à une plateforme de dépôt de séances pour les coach à distance permettant de construire et de déposer des séances entière uniquement grâce à Athload.
+  </div>
 </div>
 
 </div>
@@ -784,24 +824,44 @@ textarea:focus {
 
 <div class="grid">
 
-<div class="card">
-  <span>Suivi blessures quotidien</span>
-  <img src="Blessures.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Suivi blessure quotidien</span>
+    <img src="Injury.jpg">
+  </div>
+  <div class="card-desc">
+    Suivi des douleurs ou blessures chaque jour avec un questionnaire sur l’origine et la nature de la douleur.
+  </div>
 </div>
 
-<div class="card">
-  <span>Charge de tonnage</span>
-  <img src="Tonnage.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Charge de tonnage</span>
+    <img src="Tonnage.jpg">
+  </div>
+  <div class="card-desc">
+    Possibilité de suivre la charge de tonnage ce qui peut s’avérer intéressant sur certains moments de la saison.
+  </div>
 </div>
 
-<div class="card">
-  <span>Statistiques de match</span>
-  <img src="Statistiques_match.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Statistiques de match</span>
+    <img src="Match.jpg">
+  </div>
+  <div class="card-desc">
+    Possibilité d’accéder à des statistiques liées aux résultats des matchs (pourcentage de victoire sur différentes durées et répartitions des durées) ainsi qu’à l’historiques de matchs.
+  </div>
 </div>
 
-<div class="card">
-  <span>Tests physiques évolutifs</span>
-  <img src="Testing.jpg">
+<div class="card-wrapper">
+  <div class="card">
+    <span>Tests physiques évolutifs</span>
+    <img src="Tests.jpg">
+  </div>
+  <div class="card-desc">
+    Possibilité de rentrer des résultats dans différents tests physiques (20+), visualiser l’évolution sur les différentes périodes de test et comparaison avec des références pour le tennis (ITF, WTA, ATP).
+  </div>
 </div>
 
 </div>
@@ -813,10 +873,9 @@ textarea:focus {
 <div class="price-card" onclick="toggle(this)">
 
 <h3>Coach</h3>
-<div class="price">49€<span>/mois</span></div>
+<div class="price">19€<span>/mois</span> ou 215€<span>/an</span></div>
+<a href="https://athload.base44.app" class="cta">Essayer gratuitement</a>
 
-<a class="cta">Essayer gratuitement</a>
-<a href="#contact" class="cta">Essayer gratuitement</a>
   
 <div class="features">
 
@@ -839,10 +898,8 @@ textarea:focus {
 <div class="price-card" onclick="toggle(this)">
 
 <h3>Coach+</h3>
-<div class="price">99€<span>/mois</span></div>
-
-<a class="cta">Commencer maintenant</a>
-<a href="#contact" class="cta">Commencer maintenant</a>
+<div class="price">29€<span>/mois</span> ou 300€<span>/an</span></div>
+<a href="https://athload.base44.app" class="cta">Commencer maintenant</a>
   
 <div class="features">
 
