@@ -17,173 +17,124 @@ body {
   background: #0f1020;
 }
 
-/* ===== BACKGROUND ===== */
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-}
-
-.background img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.08);
-  transition: opacity 2.8s, transform 8s;
-}
-
-.background img.active {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-.background::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(to bottom, rgba(10,15,40,0.4), rgba(10,15,40,0.85));
-  backdrop-filter: blur(6px);
-}
-
 /* ===== HEADER ===== */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 50px;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 24px;
-}
+.logo {font-weight:bold;font-size:24px;}
 
-header a img {
-  width: 28px;
-  margin-left: 10px;
-}
+header a img {width:28px;margin-left:10px;}
 
 /* ===== HERO ===== */
 .hero {
-  text-align: center;
-  padding: 100px 20px 80px;
-}
-
-.hero-title {
-  font-size: 48px;
-}
-
-.hero-buttons {
-  margin-top: 30px;
+  text-align:center;
+  padding:100px 20px;
 }
 
 .btn {
-  background: #5f5fff;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 10px;
-  text-decoration: none;
+  background:#5f5fff;
+  padding:12px 25px;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
 }
 
-/* ===== TEXTE AJOUTÉ ===== */
 .hero-desc {
-  max-width: 700px;
-  margin: 20px auto;
-  font-size: 16px;
-  opacity: 0.9;
+  max-width:700px;
+  margin:20px auto;
 }
 
-/* ===== CARDS ===== */
+/* ===== GRID ===== */
 .grid {
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:40px;
-  padding:20px;
+  padding:40px;
 }
 
+/* ===== CARD ===== */
 .card {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  min-height: 120px;
-  color: #111;
-  position: relative;
-  transition: 0.3s;
+  background:white;
+  color:#111;
+  border-radius:15px;
+  padding:20px;
+  position:relative;
+  min-height:90px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform:scale(1.05);
 }
 
-/* IMAGE EN BAS A DROITE */
+/* IMAGE BAS DROITE */
 .card img {
-  width: 70px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  width:70px;
+  position:absolute;
+  bottom:10px;
+  right:10px;
 }
 
-/* TEXTE DESCRIPTION */
-.card p {
-  font-size: 13px;
-  margin-top: 10px;
-  opacity: 0;
-  transition: 0.3s;
+/* TEXTE HOVER SOUS CARTE */
+.card-desc {
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  font-size:14px;
+  transition:0.4s;
+  margin-top:10px;
 }
 
-.card:hover p {
-  opacity: 1;
+.card:hover + .card-desc {
+  max-height:200px;
+  opacity:1;
 }
 
-/* ===== PRICING ===== */
+/* ===== PRICING (inchangé) ===== */
 .price-card {
   background: rgba(255,255,255,0.1);
   padding: 30px;
   border-radius: 20px;
-  text-align: center;
+  text-align:center;
 }
 
-.price {
-  font-size: 32px;
-}
+.price {font-size:32px;}
 
 .cta {
-  display: block;
-  margin-top: 15px;
-  padding: 10px;
-  background: #5f5fff;
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
+  display:block;
+  margin-top:15px;
+  padding:10px;
+  background:#5f5fff;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
 }
 
 /* ===== CONTACT ===== */
 .contact-form {
-  max-width: 250px; /* réduit de moitié */
-  margin: auto;
+  max-width:250px;
+  margin:auto;
 }
 
-/* ===== FORM ===== */
 input, textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border-radius:8px;
+  border:none;
 }
 
 button {
-  background: #5f5fff;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
+  background:#5f5fff;
+  color:white;
+  padding:12px;
+  border-radius:10px;
+  border:none;
 }
 
 </style>
@@ -191,13 +142,6 @@ button {
 </head>
 
 <body>
-
-<div class="background">
-<img src="Background1.jpg" class="active">
-<img src="Background2.jpg">
-<img src="Background3.jpg">
-<img src="Background4.jpg">
-</div>
 
 <header>
 <div class="logo">Athload</div>
@@ -211,11 +155,9 @@ button {
 <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
 </a>
 </div>
-
 </header>
 
 <section class="hero">
-
 <h1>Optimisez la performance</h1>
 
 <a href="https://athload.base44.app" class="btn">Essayer gratuitement</a>
@@ -223,94 +165,41 @@ button {
 <p class="hero-desc">
 Chez Athload nous portons une attention particulière à la mise en place pratique de notre application. C’est pourquoi nous vous proposons un outils le plus complet possible en le faisant évoluer continuellement pour qu’il vous corresponde.
 </p>
-
 </section>
-
-<!-- FEATURES -->
 
 <div class="grid">
 
+<div>
 <div class="card">
 <span>Wellness scientifique quotidien</span>
-<p>Suivi d’état de forme chaque jour grâce au test Wellness validée par la science et a un score de risque. Possibilité d’avoir le détail d’évolution par item du test de wellness.</p>
 <img src="Wellness.jpg">
 </div>
+<div class="card-desc">
+Suivi d’état de forme chaque jour grâce au test Wellness validée par la science et a un score de risque. Possibilité d’avoir le détail d’évolution par item du test de wellness.
+</div>
+</div>
 
+<div>
 <div class="card">
 <span>Charge Foster</span>
-<p>Suivi de charge d’entrainement Grâce au modèle de Foster. Graphique de répartition des volumes, des intensités et des thème de séances se basant sur la charge.</p>
 <img src="Charge_foster.jpg">
 </div>
+<div class="card-desc">
+Suivi de charge d’entrainement Grâce au modèle de Foster. Graphique de répartition des volumes, des intensités et des thème de séances se basant sur la charge.
+</div>
+</div>
 
+<div>
 <div class="card">
 <span>EWMA & monotonie</span>
-<p>Utilisation des indices de monotonie, de Gabbett (ACWR et EWMA) ainsi que la monotonie d’entrainement pour être le plus précis possible concernant l’accumulation de fatigue des athlètes.</p>
 <img src="EWMA_monotonie.jpg">
 </div>
-
-<div class="card">
-<span>Projection S+1 à S+4</span>
-<p>Possibilité de faire une projection de charge pour la semaine en cours, la semaine suivant (S+1) cela jusqu’à S+4 et de l’intégrer au différent graphiques liés à cette charge.</p>
-<img src="Projection.jpg">
+<div class="card-desc">
+Utilisation des indices de monotonie, de Gabbett (ACWR et EWMA) ainsi que la monotonie d’entrainement pour être le plus précis possible concernant l’accumulation de fatigue des athlètes.
 </div>
-
-<div class="card">
-<span>Graphiques dynamiques</span>
-<p>Accès a des graphiques zoomables, découplables et exportables en PDF sur des périodes données.</p>
-<img src="Graphiques.jpg">
-</div>
-
-<div class="card">
-<span>Calendrier partagé</span>
-<p>Programmation des compétition grâce à un calendrier partagé. Affichage des périodes, des matchs et des séances réalisés pour tous les joueurs sur le même calendrier.</p>
-<img src="Calendrier.jpg">
-</div>
-
-<div class="card">
-<span>Suivi multi joueurs</span>
-<p>Un seul outil pour suivre plusieurs joueurs...</p>
-<img src="Equipe.jpg">
-</div>
-
-<div class="card">
-<span>Espace joueur</span>
-<p>Un espace intuitif...</p>
-<img src="Espace_joueur.jpg">
-</div>
-
-<div class="card">
-<span>Banque d’exercices coopérative</span>
-<p>Une banque d’exercices vouée à évoluer...</p>
-<img src="Banque_exercices.jpg">
-</div>
-
-<div class="card">
-<span>Suivi blessure quotidien</span>
-<p>Suivi des douleurs ou blessures chaque jour...</p>
-<img src="Blessures.jpg">
-</div>
-
-<div class="card">
-<span>Charge de tonnage</span>
-<p>Possibilité de suivre la charge de tonnage...</p>
-<img src="Tonnage.jpg">
-</div>
-
-<div class="card">
-<span>Statistique de match</span>
-<p>Possibilité d’accéder à des statistiques liées aux résultats des matchs...</p>
-<img src="Statistiques_match.jpg">
-</div>
-
-<div class="card">
-<span>Tests physiques évolutifs</span>
-<p>Possibilité de rentrer des résultats...</p>
-<img src="Testing.jpg">
 </div>
 
 </div>
-
-<!-- PRICING -->
 
 <section class="pricing">
 
@@ -327,8 +216,6 @@ Chez Athload nous portons une attention particulière à la mise en place pratiq
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact">
 <form class="contact-form" action="https://formspree.io/f/mwleeeeq" method="POST">
