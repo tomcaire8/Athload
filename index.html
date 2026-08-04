@@ -198,22 +198,23 @@ padding:20px;
 
 /* TEXTE HOVER */
 .card-wrapper {
-  display: flex;
-  flex-direction: column;
+  display: contents;
 }
 
 .card-desc {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  font-size: 14px;
-  margin-top: 5px;
+  display: none;
 }
 
-.card-wrapper:hover .card-desc {
-  max-height: 300px;
-  opacity: 1;
+.row-desc {
+  grid-column: 1 / -1;
+  margin-top: 35px;
+  padding: 0 20px;
+  font-size: 20px;
+  line-height: 1.8;
+  text-align: center;
+  min-height: 70px;
+  opacity: 0;
+  transition: all 0.4s ease;
 }
   
 .grid {
@@ -760,36 +761,33 @@ Chez Athload nous portons une attention particulière à la mise en place pratiq
 
 <div class="grid">
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Projection S+1 à S+4</span>
-    <img src="Projection.jpg">
-  </div>
-  <div class="card-desc">
-    Possibilité de faire une projection de charge pour la semaine en cours, la semaine suivant (S+1) cela jusqu’à S+4 et de l’intégrer au différent graphiques liés à cette charge.
-  </div>
+<div class="grid">
+
+<div class="card-row">
+
+<div class="card" data-desc="Possibilité de faire une projection de charge pour la semaine en cours, la semaine suivant (S+1) cela jusqu’à S+4 et de l’intégrer au différent graphiques liés à cette charge.">
+<span>Projection S+1 à S+4</span>
+<img src="Projection.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Graphiques dynamiques</span>
-    <img src="Graph.jpg">
-  </div>
-  <div class="card-desc">
-    Accès a des graphiques zoomables, découplables et exportables en PDF sur des périodes données.
-  </div>
+
+<div class="card" data-desc="Accès a des graphiques zoomables, découplables et exportables en PDF sur des périodes données.">
+<span>Graphiques dynamiques</span>
+<img src="Graph.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Calendrier partagé</span>
-    <img src="Calendar.jpg">
-  </div>
-  <div class="card-desc">
-    Programmation des compétition grâce à un calendrier partagé. Affichage des périodes, des matchs et des séances réalisés pour tous les joueurs sur le même calendrier.
-  </div>
+
+<div class="card" data-desc="Programmation des compétition grâce à un calendrier partagé. Affichage des périodes, des matchs et des séances réalisés pour tous les joueurs sur le même calendrier.">
+<span>Calendrier partagé</span>
+<img src="Calendar.jpg">
 </div>
 
+
+<div class="row-desc"></div>
+
+</div>
+
+</div>
 </div>
 
 </section>
@@ -801,34 +799,28 @@ Chez Athload nous portons une attention particulière à la mise en place pratiq
 
 <div class="grid">
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Suivi multi joueurs</span>
-    <img src="Team.jpg">
-  </div>
-  <div class="card-desc">
-    Un seul outil pour suivre plusieurs joueurs, avec l’onglet Team votre application vous permet de voir et de gérer tous vos joueurs sur la même page. De plus avec l’option Club plusieurs coach pourrons avoir accès aux même joueurs.
-  </div>
+<div class="card-row">
+
+<div class="card" data-desc="Un seul outil pour suivre plusieurs joueurs, avec l’onglet Team votre application vous permet de voir et de gérer tous vos joueurs sur la même page. De plus avec l’option Club plusieurs coach pourrons avoir accès aux même joueurs.">
+  <span>Suivi multi joueurs</span>
+  <img src="Team.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Espace joueur</span>
-    <img src="Player.jpg">
-  </div>
-  <div class="card-desc">
-    Un espace intuitif, simple et condensé permettant aux joueurs de remplir leur Wellness, recevoir leur séance de la journée, donner son feedback (Durée, RPE, feeling) sur la séance qu’ils viennent de réaliser, Déclarer une douleur ou une blessure et enfin ajouter des période de tournoi ou de vacances à la programmation.
-  </div>
+
+<div class="card" data-desc="Un espace intuitif, simple et condensé permettant aux joueurs de remplir leur Wellness, recevoir leur séance de la journée, donner son feedback (Durée, RPE, feeling) sur la séance qu’ils viennent de réaliser, Déclarer une douleur ou une blessure et enfin ajouter des période de tournoi ou de vacances à la programmation.">
+  <span>Espace joueur</span>
+  <img src="Player.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Banque d’exercice coopérative</span>
-    <img src="Exercice.jpg">
-  </div>
-  <div class="card-desc">
-    Une banque d’exercices vouée à évoluer et se renforcer. Chaque exercice ajouté dans la banque par un coach sera immédiatement disponible pour tous les autres coach utilisant l’application. Cette outil de référencement sera lié à une plateforme de dépôt de séances pour les coach à distance permettant de construire et de déposer des séances entière uniquement grâce à Athload.
-  </div>
+
+<div class="card" data-desc="Une banque d’exercices vouée à évoluer et se renforcer. Chaque exercice ajouté dans la banque par un coach sera immédiatement disponible pour tous les autres coach utilisant l’application. Cette outil de référencement sera lié à une plateforme de dépôt de séances pour les coach à distance permettant de construire et de déposer des séances entière uniquement grâce à Athload.">
+  <span>Banque d’exercice coopérative</span>
+  <img src="Exercice.jpg">
+</div>
+
+
+<div class="row-desc"></div>
+
 </div>
 
 </div>
@@ -842,49 +834,42 @@ Chez Athload nous portons une attention particulière à la mise en place pratiq
 
 <div class="grid">
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Suivi blessure quotidien</span>
-    <img src="Injury.jpg">
-  </div>
-  <div class="card-desc">
-    Suivi des douleurs ou blessures chaque jour avec un questionnaire sur l’origine et la nature de la douleur.
-  </div>
+<div class="card-row">
+
+
+<div class="card" data-desc="Suivi des douleurs ou blessures chaque jour avec un questionnaire sur l’origine et la nature de la douleur.">
+  <span>Suivi blessure quotidien</span>
+  <img src="Injury.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Charge de tonnage</span>
-    <img src="Tonnage.jpg">
-  </div>
-  <div class="card-desc">
-    Possibilité de suivre la charge de tonnage ce qui peut s’avérer intéressant sur certains moments de la saison.
-  </div>
+
+<div class="card" data-desc="Possibilité de suivre la charge de tonnage ce qui peut s’avérer intéressant sur certains moments de la saison.">
+  <span>Charge de tonnage</span>
+  <img src="Tonnage.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Statistiques de match</span>
-    <img src="Match.jpg">
-  </div>
-  <div class="card-desc">
-    Possibilité d’accéder à des statistiques liées aux résultats des matchs (pourcentage de victoire sur différentes durées et répartitions des durées) ainsi qu’à l’historiques de matchs.
-  </div>
+
+<div class="card" data-desc="Possibilité d’accéder à des statistiques liées aux résultats des matchs (pourcentage de victoire sur différentes durées et répartitions des durées) ainsi qu’à l’historiques de matchs.">
+  <span>Statistiques de match</span>
+  <img src="Match.jpg">
 </div>
 
-<div class="card-wrapper">
-  <div class="card">
-    <span>Tests physiques évolutifs</span>
-    <img src="Tests.jpg">
-  </div>
-  <div class="card-desc">
-    Possibilité de rentrer des résultats dans différents tests physiques (20+), visualiser l’évolution sur les différentes périodes de test et comparaison avec des références pour le tennis (ITF, WTA, ATP).
-  </div>
+
+<div class="card" data-desc="Possibilité de rentrer des résultats dans différents tests physiques (20+), visualiser l’évolution sur les différentes périodes de test et comparaison avec des références pour le tennis (ITF, WTA, ATP).">
+  <span>Tests physiques évolutifs</span>
+  <img src="Tests.jpg">
+</div>
+
+
+<div class="row-desc"></div>
+
+
 </div>
 
 </div>
 
 </section>
+  
 <section class="pricing">
 
 
@@ -1097,21 +1082,36 @@ bg.style.transform =
 animate();
 </script>
 
-<script>
 document.querySelectorAll('.card-row').forEach(row => {
-  const descBox = row.querySelector('.row-desc');
 
-  row.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      descBox.textContent = card.getAttribute('data-desc');
-    });
-  });
+const descBox = row.querySelector('.row-desc');
 
-  row.addEventListener('mouseleave', () => {
-    descBox.textContent = "";
-  });
+
+row.querySelectorAll('.card').forEach(card => {
+
+
+card.addEventListener('mouseenter', () => {
+
+descBox.textContent = card.getAttribute('data-desc');
+
+descBox.style.opacity = "1";
+
 });
-</script>
+
+
+});
+
+
+row.addEventListener('mouseleave', () => {
+
+descBox.textContent = "";
+
+descBox.style.opacity = "0";
+
+});
+
+
+});
 </body>
 </html>
  
