@@ -12,7 +12,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #111;
+  color: white;
   background: #0f1020;
 }
 
@@ -122,11 +122,6 @@ header a img:hover {
 }
 
 /* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
 .hero h1 {
   font-size: 40px;
 }
@@ -553,14 +548,6 @@ footer {
 
 }
 
-
-.feature-category h2 {
-
-  font-size:42px;
-
-  margin-bottom:70px;
-
-}
 .feature-category h2 {
   text-align: center;
   font-size: 28px;
@@ -572,9 +559,7 @@ footer {
 
   /* ===== LISIBILITÉ TEXTE SUR FOND ===== */
 
-body {
-  color: white;
-}
+
 
 .hero-sub,
 .hero-tag {
@@ -650,6 +635,24 @@ body {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.3);
 }
+
+textarea {
+  min-height: 140px;
+  resize: none;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid #00f0ff;
+  box-shadow: 0 0 15px rgba(0,240,255,0.3);
+}
 </style>
 </head>
 
@@ -663,7 +666,7 @@ body {
 
 </div>
 <header>
-  <div class="logo">athload</div>
+<div class="logo">Athload</div>
 
   <a href="https://instagram.com/Athload_app" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
@@ -687,6 +690,7 @@ body {
 
   <div class="hero-buttons">
     <a class="btn primary">Essayer gratuitement</a>
+    <a href="#contact" class="btn primary">Essayer gratuitement</a>
   </div>
 
 </section>
@@ -699,12 +703,12 @@ body {
 
 <div class="card">
   <span>Wellness scientifique quotidien</span>
-  <img src="Wellness.jpg">
+ <img src="Wellness.jpg" alt="Wellness">
 </div>
 
 <div class="card">
   <span>Charge d’entraînement (Foster)</span>
-  <img src="Charge_foster.jpg">
+  <img src="Charge_foster.jpg" alt="Charge">
 </div>
 
 <div class="card">
@@ -714,7 +718,7 @@ body {
 
 <div class="card">
   <span>EWMA & monotonie</span>
-  <img src="EWMA_monotonie.jpg">
+  <img src="EWMA_monotonie.jpg" alt="EWMA">
 </div>
 
 </div>
@@ -730,12 +734,12 @@ body {
 
 <div class="card">
   <span>Projection S+1 à S+4</span>
-  <img src="Projection.jpg">
+  <img src="Projection.jpg" alt="Projection">
 </div>
 
 <div class="card">
   <span>Graphiques dynamiques</span>
-  <img src="Graphiques.jpg">
+  <img src="Graphiques.jpg" alt="Graphiques">
 </div>
 
 <div class="card">
@@ -812,6 +816,7 @@ body {
 <div class="price">49€<span>/mois</span></div>
 
 <a class="cta">Essayer gratuitement</a>
+<a href="#contact" class="cta">Essayer gratuitement</a>
   
 <div class="features">
 
@@ -837,6 +842,7 @@ body {
 <div class="price">99€<span>/mois</span></div>
 
 <a class="cta">Commencer maintenant</a>
+<a href="#contact" class="cta">Commencer maintenant</a>
   
 <div class="features">
 
@@ -863,6 +869,7 @@ body {
 <div class="price">Sur devis</div>
 
 <a class="cta secondary">Nous contacter</a>
+<a href="#contact" class="cta secondary">Nous contacter</a>
   
 <div class="features">
 
@@ -882,22 +889,71 @@ body {
 
 
 </section>
-<section class="contact">
+<section id="contact" class="contact">
 <h2>Contact</h2>
 
-<form class="contact-form" action="mailto:tomcaire88@gmail.com" method="POST" enctype="text/plain">
-<input type="text" placeholder="Nom" required>
-<input type="email" placeholder="Email" required>
-<textarea placeholder="Message"></textarea>
-<button type="submit">Envoyer</button>
+<form id="contact-form" action="https://formspree.io/f/mwleeeeq" method="POST">
+
+  <input 
+    type="text" 
+    name="nom" 
+    placeholder="Nom" 
+    required
+  >
+
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Email" 
+    required
+  >
+
+  <textarea 
+    name="message" 
+    placeholder="Votre message..." 
+    required
+  ></textarea>
+
+<button type="submit" class="cta">
+    Envoyer le message
+  </button>
+
+  <p id="success-message" style="display:none; color:#4CAF50;">
+  ✅ Message envoyé !
+</p>
+
 </form>
 
 </section>
 
 <footer>
-Créé par Tom Caire-Madoeuf
+Créé par Tom Caire--Madoeuf
 </footer>
+  
+<script>
+const form = document.getElementById('contact-form');
+const success = document.getElementById('success-message');
 
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    form.reset();
+    success.style.display = 'block';
+  } else {
+    alert("Erreur, réessaie.");
+  }
+});
+</script>
+  
 <script>
 function toggle(el){
   el.classList.toggle("active");
@@ -905,12 +961,19 @@ function toggle(el){
 
 const backgrounds = document.querySelectorAll(".background img");
 
-const sections = [
-  0,
-  document.querySelectorAll(".feature-category")[0].offsetTop,
-  document.querySelectorAll(".feature-category")[1].offsetTop,
-  document.querySelector(".pricing").offsetTop
-];
+let sections = [];
+
+function updateSections() {
+  sections = [
+    0,
+    document.querySelectorAll(".feature-category")[0].offsetTop,
+    document.querySelectorAll(".feature-category")[1].offsetTop,
+    document.querySelector(".pricing").offsetTop
+  ];
+}
+
+window.addEventListener("load", updateSections);
+window.addEventListener("resize", updateSections);
 
 let current = 0;
 
