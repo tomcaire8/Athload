@@ -99,6 +99,56 @@ body {
 }
 
 /* ===== HEADER ===== */
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+
+.header-actions img {
+  width:28px;
+  height:28px;
+}
+
+
+.header-btn {
+
+  background:
+  linear-gradient(
+    135deg,
+    #5f5fff,
+    #b14cff
+  );
+
+  padding:10px 22px;
+
+  border-radius:12px;
+
+  color:white;
+
+  font-weight:600;
+
+  text-decoration:none;
+
+  transition:.3s ease;
+
+  box-shadow:
+  0 10px 25px rgba(95,95,255,.4);
+
+}
+
+
+.header-btn:hover {
+
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 15px 35px rgba(95,95,255,.6);
+
+}
+  
 header {
   display: flex;
   justify-content: space-between;
@@ -129,6 +179,24 @@ header a img:hover {
 }
 
 /* ===== HERO ===== */
+.intro-text {
+
+max-width:900px;
+
+margin:70px auto 0;
+
+font-size:24px;
+
+line-height:1.7;
+
+opacity:.9;
+
+text-align:center;
+
+text-shadow:
+0 3px 20px rgba(0,0,0,.6);
+
+}
 .hero h1 {
   font-size: 40px;
 }
@@ -221,7 +289,7 @@ padding:20px;
 }
 
 .card-desc {
-  display: none;
+  display: block;
 }
 
 .row-desc {
@@ -540,9 +608,22 @@ footer {
 }
 
 .hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
+
+  font-size:68px;
+
+  font-weight:800;
+
+  line-height:1.15;
+
+  letter-spacing:-1px;
+
+}
+@media(max-width:700px){
+
+.hero-title{
+  font-size:42px;
+}
+
 }
 
 .hero-title span {
@@ -722,14 +803,20 @@ textarea:focus {
 <header>
 <div class="logo">Athload</div>
 
-<div>
+<div class="header-actions">
+
+<a href="https://athload.base44.app" class="header-btn">
+Essayer
+</a>
+
 <a href="https://instagram.com/Athload_app" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </a>
 
 <a href="#contact">
-<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+<img src="https://cdn-icons-png.flaticon.com/512/646/646094.png">
 </a>
+
 </div>
 </header>
 
@@ -752,8 +839,10 @@ textarea:focus {
 <a href="https://athload.base44.app" class="btn primary">Essayer gratuitement</a>
 </div>
 
-<p style="max-width:700px;margin:20px auto;">
-Chez Athload nous portons une attention particulière à la mise en place pratique de notre application. C’est pourquoi nous vous proposons un outils le plus complet possible en le faisant évoluer continuellement pour qu’il vous corresponde.
+<p class="intro-text">
+
+Chez Athload nous portons une attention particulière à la mise en place pratique de notre application. C’est pourquoi nous vous proposons un outil le plus complet possible en le faisant évoluer continuellement pour qu’il vous corresponde.
+
 </p>
 
 </section>
